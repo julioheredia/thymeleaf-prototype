@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Bands</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+	<div class="container my-5">
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${bands.empty}">
+					<td colspan="2">No Books Available</td>
+				</tr>
+				<tr th:each="band : ${bands}">
+					<td><span th:text="${band.name}"> Name </span></td>
+					<td th:each="musician : ${band.musicians}">
+						<span th:text="${musician.name}"> Musicians </span></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>
